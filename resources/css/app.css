@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
-@plugin '@tailwindcss/forms';
-@plugin '@tailwindcss/typography';
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../vendor/laravel/jetstream/**/*.blade.php';
@@ -13,6 +13,92 @@
     --font-sans: Figtree, ui-sans-serif, system-ui, sans-serif,
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
         "Noto Color Emoji";
+
+    /*
+        1. Tema Claro:
+        Estas variables definen los colores utilizados en el tema claro. Los nombres de las variables
+        corresponden a distintos aspectos visuales de la interfaz, como fondos, texto, contornos, etc.
+        --color-surface: El color de fondo principal (blanco).
+        --color-surface-alt: Un color alternativo de fondo (gris claro).
+        --color-on-surface: El color de texto que aparece sobre el fondo principal (gris oscuro).
+        --color-on-surface-strong: Un color de texto más fuerte (gris muy oscuro).
+        --color-primary: Color principal (negro).
+        --color-on-primary: El color de texto que aparece sobre el color primario (gris muy claro).
+        --color-secondary: Color secundario (gris oscuro).
+        --color-on-secondary: El color de texto que aparece sobre el color secundario (blanco).
+        --color-outline: El color del contorno (gris claro).
+        --color-outline-strong: Un contorno más fuerte (gris oscuro).
+
+        2. Tema Oscuro:
+        Similar a la configuración del tema claro, pero con colores adaptados para un fondo oscuro.
+        Las variables en esta sección son los mismos tipos de colores pero con variaciones más oscuras.
+        --color-surface-dark: El fondo principal en el tema oscuro (gris muy oscuro).
+        --color-surface-dark-alt: Un fondo alternativo (gris muy oscuro).
+        --color-on-surface-dark: El texto sobre los fondos oscuros (gris claro).
+        --color-on-surface-dark-strong: El texto más fuerte sobre los fondos oscuros (blanco).
+        --color-primary-dark: El color primario en el tema oscuro (blanco).
+        --color-on-primary-dark: El texto sobre el color primario en el tema oscuro (negro).
+        --color-secondary-dark: Un color secundario en el tema oscuro (gris claro).
+        --color-on-secondary-dark: El texto sobre el color secundario en el tema oscuro (negro).
+        --color-outline-dark: El contorno en el tema oscuro (gris oscuro).
+        --color-outline-dark-strong: Un contorno más fuerte en el tema oscuro (gris claro).
+
+        3. Colores Compartidos:
+        Estas variables definen colores que son comunes a ambos temas (claro y oscuro), utilizados para representar estados o alertas, como la información, éxito, advertencia y error.
+        --color-info: El color para indicar información (azul).
+        --color-on-info: El color de texto sobre el color de información (blanco).
+        --color-success: El color para indicar éxito (verde).
+        --color-on-success: El color de texto sobre el color de éxito (blanco).
+        --color-warning: El color para advertencias (ámbar).
+        --color-on-warning: El color de texto sobre el color de advertencia (blanco).
+        --color-danger: El color para indicar peligro o error (rojo).
+        --color-on-danger: El color de texto sobre el color de peligro (blanco).
+
+        4. Radio de Borde:
+        Se define el radio de borde, una propiedad de estilo para los bordes redondeados.
+        --radius-radius: Define el radio de borde utilizando la variable --radius-sm, lo que sugiere que es un valor pequeño para bordes redondeados.
+    */
+
+    /* tema claro */
+    --color-surface: var(--color-white);
+    --color-surface-alt: var(--color-neutral-50);
+    --color-on-surface: var(--color-neutral-600);
+    --color-on-surface-strong: var(--color-neutral-900);
+
+    /* botones */
+    --color-primary: var(--color-indigo-600);
+    --color-on-primary: var(--color-neutral-100);
+    --color-secondary: var(--color-neutral-800);
+    --color-on-secondary: var(--color-white);
+    --color-outline: var(--color-neutral-300);
+    --color-outline-strong: var(--color-neutral-800);
+
+    /* tema oscuro */
+    --color-surface-dark: var(--color-neutral-950);
+    --color-surface-dark-alt: var(--color-neutral-900);
+    --color-on-surface-dark: var(--color-neutral-300);
+    --color-on-surface-dark-strong: var(--color-white);
+
+    /* botones */
+    --color-primary-dark: var(--color-white);
+    --color-on-primary-dark: var(--color-black);
+    --color-secondary-dark: var(--color-neutral-300);
+    --color-on-secondary-dark: var(--color-black);
+    --color-outline-dark: var(--color-neutral-700);
+    --color-outline-dark-strong: var(--color-neutral-300);
+
+    /* colores compartidos */
+    --color-info: var(--color-sky-500);
+    --color-on-info: var(--color-white);
+    --color-success: var(--color-green-500);
+    --color-on-success: var(--color-white);
+    --color-warning: var(--color-amber-500);
+    --color-on-warning: var(--color-white);
+    --color-danger: var(--color-red-500);
+    --color-on-danger: var(--color-white);
+
+    /* radio de borde */
+    --radius-radius: var(--radius-sm);
 }
 
 /*
