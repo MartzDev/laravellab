@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "../css/scrollbar.conf.css";
 
 @plugin "@tailwindcss/forms";
 @plugin "@tailwindcss/typography";
@@ -66,7 +67,7 @@
     --color-on-surface-strong: var(--color-neutral-900);
 
     /* botones */
-    --color-primary: var(--color-indigo-600);
+    --color-primary: var(--color-black);
     --color-on-primary: var(--color-neutral-100);
     --color-secondary: var(--color-neutral-800);
     --color-on-secondary: var(--color-white);
