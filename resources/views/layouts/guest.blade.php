@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="arctic">
 
 <head>
     <meta charset="utf-8">
@@ -19,7 +19,7 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <script src="{{ asset('theme.config.js') }}"></script>
+    <script src="{{ asset('theme.conf.js') }}"></script>
 
     <script>
         // Script inline para aplicar el tema inmediatamente (evita parpadeos)

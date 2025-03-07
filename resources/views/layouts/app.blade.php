@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="arctic">
 
 <head>
     <meta charset="utf-8">
@@ -57,9 +57,9 @@
         @livewire('navigation-menu')
 
         <!-- top navbar & main content  -->
-        <div class="h-svh w-full overflow-y-auto bg-surface dark:bg-surface-dark-alt">
+        <div class="flex flex-col justify-between h-svh w-full overflow-y-auto bg-surface dark:bg-surface-dark">
             <!-- top navbar  -->
-            <nav class="sticky top-0 z-10 flex items-center justify-between border-b border-outline bg-surface-alt px-4 py-2 dark:border-outline-dark dark:bg-surface-dark"
+            <nav class="sticky top-0 z-10 flex items-center justify-between border-b border-outline bg-surface-alt px-4 py-2 dark:border-outline-dark dark:bg-surface-dark-alt"
                 aria-label="top navibation bar">
 
                 <!-- sidebar toggle button for small screens  -->
@@ -73,16 +73,15 @@
                     <span class="sr-only">sidebar toggle</span>
                 </button>
 
-                <!-- encabezado  -->
-                <header class="hidden lg:inline-block text-sm font-medium text-on-surface dark:text-on-surface-dark"
-                    aria-label="breadcrumb">
-                    @if (isset($header))
+                <!-- Page Heading -->
+                @if (isset($header))
+                    <header
+                        class="hidden lg:inline-block md:hidden text-sm font-medium text-on-surface dark:text-on-surface-dark">
                         {{ $header }}
-                    @endif
-                </header>
+                    </header>
+                @endif
 
                 <div class="flex gap-2 flex-row items-center justify-center">
-
                     <div>
                         <button
                             class="inline-flex items-center justify-center p-2 rounded-md text-gray-400
@@ -109,6 +108,7 @@
                         </button>
                     </div>
 
+
                     <!-- Profile Menu  -->
                     <div x-data="{ userDropdownIsOpen: false }" class="relative" x-on:keydown.esc.window="userDropdownIsOpen = false">
                         <button type="button"
@@ -120,8 +120,9 @@
                                 class="size-8 object-cover rounded-radius" alt="avatar" aria-hidden="true" />
                             <div class="hidden md:flex flex-col">
                                 <span
-                                    class="text-sm font-bold text-on-surface-strong dark:text-on-surface-dark-strong">{{ Auth::user()->name }}</span>
-                                <span class="text-xs" aria-hidden="true">{{ Auth::user()->email }}</span>
+                                    class="text-sm font-bold text-on-surface-strong dark:text-on-surface-dark-strong">Alex
+                                    Martinez</span>
+                                <span class="text-xs" aria-hidden="true">@alexmartinez</span>
                                 <span class="sr-only">profile settings</span>
                             </div>
                         </button>
@@ -135,7 +136,7 @@
                             x-trap="userDropdownIsOpen">
 
                             <div class="flex flex-col py-1.5">
-                                <a href="{{ route('profile.show') }}"
+                                <a href="#"
                                     class="flex items-center gap-2 px-2 py-1.5 text-sm font-medium text-on-surface underline-offset-2 hover:bg-primary/5 hover:text-on-surface-strong focus-visible:underline focus:outline-hidden dark:text-on-surface-dark dark:hover:bg-primary-dark/5 dark:hover:text-on-surface-dark-strong"
                                     role="menuitem">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
@@ -173,7 +174,7 @@
                             </div>
 
                             <div class="flex flex-col py-1.5">
-                                <button type="submit" href="{{ route('logout') }}" @click.prevent="$root.submit();"
+                                <a href="#"
                                     class="flex items-center gap-2 px-2 py-1.5 text-sm font-medium text-on-surface underline-offset-2 hover:bg-primary/5 hover:text-on-surface-strong focus-visible:underline focus:outline-hidden dark:text-on-surface-dark dark:hover:bg-primary-dark/5 dark:hover:text-on-surface-dark-strong"
                                     role="menuitem">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
@@ -186,7 +187,7 @@
                                             clip-rule="evenodd" />
                                     </svg>
                                     <span>Sign Out</span>
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -194,14 +195,14 @@
             </nav>
 
             <!-- main content  -->
-            <div id="main-content" class="p-4">
+            <div id="main-content" class="p-4 flex-1">
                 <div class="overflow-y-auto">
                     {{ $slot }}
                 </div>
             </div>
 
             <footer
-                class="py-5 bg-surface-alt dark:bg-surface-dark text-black dark:text-white text-center text-sm border-t border-outline dark:border-outline-dark">
+                class="py-5 bg-surface-alt dark:bg-surface-dark-alt text-on-surface dark:text-white text-center text-sm border-t border-outline dark:border-outline-dark">
                 @php
                     $packageJsonPath = base_path('package.json');
                     $tailwindVersion = 'Versión no encontrada';

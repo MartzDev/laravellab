@@ -1,19 +1,20 @@
 @import "tailwindcss";
 @import "../css/scrollbar.conf.css";
 
-@plugin "@tailwindcss/forms";
-@plugin "@tailwindcss/typography";
-
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../vendor/laravel/jetstream/**/*.blade.php';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-    --default-font-family: "poppins";
-    --font-sans: Figtree, ui-sans-serif, system-ui, sans-serif,
+    /* fuentes */
+    --font-title: "poppins", sans-serif;
+    --font-paragraph: "poppins", sans-serif;
+    --default-font-family: "poppins", sans-serif;
+
+    /* --font-sans: Figtree, ui-sans-serif, system-ui, sans-serif,
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-        "Noto Color Emoji";
+        "Noto Color Emoji"; */
 
     /*
         1. Tema Claro:
@@ -62,44 +63,40 @@
 
     /* tema claro */
     --color-surface: var(--color-white);
-    --color-surface-alt: var(--color-neutral-50);
-    --color-on-surface: var(--color-neutral-600);
-    --color-on-surface-strong: var(--color-neutral-900);
-
-    /* botones */
-    --color-primary: var(--color-black);
-    --color-on-primary: var(--color-neutral-100);
-    --color-secondary: var(--color-neutral-800);
-    --color-on-secondary: var(--color-white);
-    --color-outline: var(--color-neutral-300);
-    --color-outline-strong: var(--color-neutral-800);
+    --color-surface-alt: var(--color-slate-100);
+    --color-on-surface: var(--color-slate-700);
+    --color-on-surface-strong: var(--color-black);
+    --color-primary: var(--color-blue-700);
+    --color-on-primary: var(--color-slate-100);
+    --color-secondary: var(--color-indigo-700);
+    --color-on-secondary: var(--color-slate-100);
+    --color-outline: var(--color-slate-300);
+    --color-outline-strong: var(--color-slate-800);
 
     /* tema oscuro */
-    --color-surface-dark: var(--color-neutral-950);
-    --color-surface-dark-alt: var(--color-neutral-900);
-    --color-on-surface-dark: var(--color-neutral-300);
+    --color-surface-dark: var(--color-slate-900);
+    --color-surface-dark-alt: var(--color-slate-800);
+    --color-on-surface-dark: var(--color-slate-300);
     --color-on-surface-dark-strong: var(--color-white);
-
-    /* botones */
-    --color-primary-dark: var(--color-white);
-    --color-on-primary-dark: var(--color-black);
-    --color-secondary-dark: var(--color-neutral-300);
-    --color-on-secondary-dark: var(--color-black);
-    --color-outline-dark: var(--color-neutral-700);
-    --color-outline-dark-strong: var(--color-neutral-300);
+    --color-primary-dark: var(--color-blue-600);
+    --color-on-primary-dark: var(--color-slate-100);
+    --color-secondary-dark: var(--color-indigo-600);
+    --color-on-secondary-dark: var(--color-slate-100);
+    --color-outline-dark: var(--color-slate-700);
+    --color-outline-dark-strong: var(--color-slate-300);
 
     /* colores compartidos */
-    --color-info: var(--color-sky-500);
+    --color-info: var(--color-sky-600);
     --color-on-info: var(--color-white);
-    --color-success: var(--color-green-500);
+    --color-success: var(--color-green-600);
     --color-on-success: var(--color-white);
     --color-warning: var(--color-amber-500);
     --color-on-warning: var(--color-white);
-    --color-danger: var(--color-red-500);
+    --color-danger: var(--color-red-600);
     --color-on-danger: var(--color-white);
 
     /* radio de borde */
-    --radius-radius: var(--radius-sm);
+    --radius-radius: var(--radius-lg);
 }
 
 /*
@@ -117,6 +114,50 @@
     ::backdrop,
     ::file-selector-button {
         border-color: var(--color-gray-200, currentColor);
+    }
+
+    [data-theme="arctic"] {
+        /* fuente */
+        --font-body: "poppins", sans-serif;
+        --font-title: "poppins", sans-serif;
+        --default-font-family: "poppins", sans-serif;
+
+        /* tema claro */
+        --color-surface: var(--color-white);
+        --color-surface-alt: var(--color-slate-100);
+        --color-on-surface: var(--color-slate-700);
+        --color-on-surface-strong: var(--color-black);
+        --color-primary: var(--color-blue-700);
+        --color-on-primary: var(--color-slate-100);
+        --color-secondary: var(--color-indigo-700);
+        --color-on-secondary: var(--color-slate-100);
+        --color-outline: var(--color-slate-300);
+        --color-outline-strong: var(--color-slate-800);
+
+        /* tema oscuro */
+        --color-surface-dark: var(--color-slate-900);
+        --color-surface-dark-alt: var(--color-slate-800);
+        --color-on-surface-dark: var(--color-slate-300);
+        --color-on-surface-dark-strong: var(--color-white);
+        --color-primary-dark: var(--color-blue-600);
+        --color-on-primary-dark: var(--color-slate-100);
+        --color-secondary-dark: var(--color-indigo-600);
+        --color-on-secondary-dark: var(--color-slate-100);
+        --color-outline-dark: var(--color-slate-700);
+        --color-outline-dark-strong: var(--color-slate-300);
+
+        /* colores compartidos */
+        --color-info: var(--color-sky-600);
+        --color-on-info: var(--color-white);
+        --color-success: var(--color-green-600);
+        --color-on-success: var(--color-white);
+        --color-warning: var(--color-amber-500);
+        --color-on-warning: var(--color-white);
+        --color-danger: var(--color-red-600);
+        --color-on-danger: var(--color-white);
+
+        /* radio de borde */
+        --radius-radius: var(--radius-lg);
     }
 }
 
